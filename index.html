@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Блок с комментариями</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+    <div class="comments"></div>
+    <form class="form">
+        <div class="form__row">
+            <label for="name" class="form__label">Имя</label>
+            <input id="name" name="name" type="text"
+                   class="form__input form__name"
+                   required maxlength="255" placeholder="Введите имя"
+                   autocomplete="off">
+        </div>
+        <div class="form__row">
+            <label for="date" class="form__label">Дата</label>
+            <input id="date" name="date" type="date"
+                   class="form__input form__date">
+        </div>
+        <div class="form__row">
+            <input name="text" type="text"
+                   class="form__input form__text"
+                   required maxlength="255" placeholder="Ваш комментарий" autocomplete="off">
+            <button type="submit" class="form__button">Отправить</button>
+        </div>
+    </form>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
