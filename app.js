@@ -1,11 +1,3 @@
-function getDateForInput(date) {
-    const year = date.getFullYear().toString().padStart(4, '0')
-    const month = (date.getMonth() + 1).toString().padStart(2, '0')
-    const day = date.getDate().toString().padStart(2, '0')
-
-    return `${year}-${month}-${day}`
-}
-
 function getRetrospectDateText(date) {
     const timeText = date.toTimeString().substring(0, 5)
     const now = new Date()
@@ -83,7 +75,6 @@ function refreshComments(commentsElement, comments) {
 window.onload = () => {
     const commentsElement = document.querySelector('.comments')
     const formElement = document.querySelector('.form')
-    //const dateElement = formElement.querySelector('.form__date')
     const textElement = formElement.querySelector('.form__text')
 
     const comments = []
@@ -94,8 +85,8 @@ window.onload = () => {
         e.preventDefault()
         const formData = new FormData(formElement)
 
-        const date = new Date(formData.get('date') || new Date())
         const now = new Date()
+        const date = new Date(formData.get('date') || now)
         date.setHours(now.getHours(), now.getMinutes(), now.getSeconds())
 
         comments.push({
@@ -106,7 +97,6 @@ window.onload = () => {
         })
 
         textElement.value = ''
-        //dateElement.value = getDateForInput(new Date())
         refreshComments(commentsElement, comments)
     })
 }
